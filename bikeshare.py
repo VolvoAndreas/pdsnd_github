@@ -32,8 +32,7 @@ def get_filters():
     # Display raw data or not
     df = pd.read_csv(CITY_DATA[city])
     step = 0
-    #show_Y_N = input('Would you like to see 5 rows of raw data? Enter yes or no to go on and explore US bikeshare data.\n')
-    show_Y_N = input('Would you like to see 10 rows of raw data? Enter yes or no to go on and explore US bikeshare data.\n')
+    show_Y_N = input('Would you like to see 5 rows of raw data? Enter yes or no to go on and explore US bikeshare data.\n')
     No_rows = len(df.index)
 
     while True:
