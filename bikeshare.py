@@ -52,13 +52,13 @@ def get_filters():
     # get user input for month (all, january, february, ... , june)
     months = ['all', 'january', 'february','march','april','may','june']
     temp = 1
-    Select_phrase = 'Select a month January, February,...June or All\n'
+    Select_phrase = 'Select a month January, February, March, April, May, June or All\n'
     while temp == 1:
         month = input(Select_phrase).lower()
         for item in range(len(months)):
             if month == months[item]:
                 temp = 0
-        Select_phrase = 'Incorrect choice, select a month January, February,...June or All\n'
+        Select_phrase = 'Incorrect choice, select a month January, February, March, April, May, June or All\n'
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
     days = ['all', 'monday', 'tuesday','wednesday','thursday','friday','saturday','sunday']
