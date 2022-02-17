@@ -46,7 +46,7 @@ def get_filters():
             print(df.iloc[0+step:5+step])
             #step += 5
             step += 10
-            show_Y_N = input('Would you like to see another 5 rows of raw data? Enter yes or no to continue?\n')
+            show_Y_N = input('Would you like to see another 10 rows of raw data? Enter Yes or No to continue?\n')
 
 
     # get user input for month (all, january, february, ... , june)
