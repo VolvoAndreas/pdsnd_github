@@ -18,10 +18,10 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    
-     # get user input for city (chicago, new york city, washington).    
-    temp = 1 
-    Select_phrase = 'Hello! Let\'s explore some US bikeshare data!\nWould you like to see data for Chicago, New York City or Washington?\n'   
+
+     # get user input for city (chicago, new york city, washington).
+    temp = 1
+    Select_phrase = 'Hello! Let\'s explore some US bikeshare data!\nWould you like to see data for Chicago, New York City or Washington?\n'
     while temp == 1:
         city = input(Select_phrase).lower()
         for key in CITY_DATA.keys():
@@ -30,12 +30,13 @@ def get_filters():
         Select_phrase = 'Incorrect choice, please select data for Chicago, New York City or Washington?\n'
 
     # Display raw data or not
-    df = pd.read_csv(CITY_DATA[city]) 
+    df = pd.read_csv(CITY_DATA[city])
     step = 0
-    show_Y_N = input('Would you like to see 5 rows of raw data? Enter yes or no to go on and explore US bikeshare data.\n')
+    #show_Y_N = input('Would you like to see 5 rows of raw data? Enter yes or no to go on and explore US bikeshare data.\n')
+    show_Y_N = input('Would you like to see 10 rows of raw data? Enter yes or no to go on and explore US bikeshare data.\n')
     No_rows = len(df.index)
 
-    while True:        
+    while True:
         if show_Y_N.lower() != 'yes':
             break
         elif step > No_rows:
@@ -43,14 +44,15 @@ def get_filters():
             break
         else:
             print(df.iloc[0+step:5+step])
-            step += 5
+            #step += 5
+            step += 10
             show_Y_N = input('Would you like to see another 5 rows of raw data? Enter yes or no to continue?\n')
 
 
     # get user input for month (all, january, february, ... , june)
     months = ['all', 'january', 'february','march','april','may','june']
-    temp = 1 
-    Select_phrase = 'Select a month January, February,...June or All\n'  
+    temp = 1
+    Select_phrase = 'Select a month January, February,...June or All\n'
     while temp == 1:
         month = input(Select_phrase).lower()
         for item in range(len(months)):
@@ -60,8 +62,8 @@ def get_filters():
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
     days = ['all', 'monday', 'tuesday','wednesday','thursday','friday','saturday','sunday']
-    temp = 1 
-    Select_phrase = 'Select a day Monday, Tuesday,...,Sunday or All\n'  
+    temp = 1
+    Select_phrase = 'Select a day Monday, Tuesday,...,Sunday or All\n'
     while temp == 1:
         day = input(Select_phrase).lower()
         for item in range(len(days)):
@@ -86,16 +88,16 @@ def load_data(city, month, day):
     """
 
     # read file
-    df = pd.read_csv(CITY_DATA[city])   
-    
+    df = pd.read_csv(CITY_DATA[city])
+
     # add columns month, day_of_week, start hour and Start_End_station
-    # filter if != all  
+    # filter if != all
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.day_name()
     df['Start Hour'] = df['Start Time'].dt.hour
     df['Start_End_Station'] = 'Start Station: ' + df['Start Station'] + ', End Station: ' + df['End Station']
-  
+
     if month != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
@@ -115,7 +117,7 @@ def time_stats(df):
 
     # display the most common month
     print('Most common month:', calendar.month_name[df['month'].mode()[0]])
-    
+
     # display the most common day of week
     print('Most common day of week:', df['day_of_week'].mode()[0])
 
@@ -179,10 +181,10 @@ def user_stats(df,city):
         print('\nNo gender statistics for ' + city.title())
 
     # Display earliest, most recent, and most common year of birth
-    if 'Birth Year' in df.columns:        
+    if 'Birth Year' in df.columns:
         print('\nEarliest year of birth:' , int(np.nanmin(df['Birth Year'])))
-        print('Most recent year of birth:' , int(np.nanmax(df['Birth Year'])))        
-        print('Most common year of birth:' , int(df['Birth Year'].mode()[0]))       
+        print('Most recent year of birth:' , int(np.nanmax(df['Birth Year'])))
+        print('Most common year of birth:' , int(df['Birth Year'].mode()[0]))
     else:
         print('No birth year statistics for ' + city.title())
 
