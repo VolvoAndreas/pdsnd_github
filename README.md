@@ -16,3 +16,6 @@ chicago.csv, new_york_city.csv,washington.csv
 ### Credits
 Good Python link I have used during the bikeshare project:
 https://www.w3schools.com/python
+
+### Improve python code, ask for more rows of raw data, from 5 to 10
+Would you like to see 10 rows of raw data? Before it was 5.
