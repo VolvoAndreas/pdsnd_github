@@ -7,7 +7,8 @@ Project was created 16:th of February
 Project Bikeshare
 
 ### Description
-Describe what your project is about and what it does
+The Bikeshare project containing bike rental data from Chicago, New York City and Washington. This tool and data could answer bike-share-questions like "The most common month?" , "The most common start time?" etc.
+
 
 ### Files used
 Include the files used
