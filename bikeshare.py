@@ -32,7 +32,8 @@ def get_filters():
     # Display raw data or not
     df = pd.read_csv(CITY_DATA[city])
     step = 0
-    show_Y_N = input('Would you like to see 5 rows of raw data? Enter yes or no to go on and explore US bikeshare data.\n')
+    #show_Y_N = input('Would you like to see 5 rows of raw data? Enter yes or no to go on and explore US bikeshare data.\n')
+    show_Y_N = input('Would you like to see 10 rows of raw data? Enter yes or no to go on and explore US bikeshare data.\n')
     No_rows = len(df.index)
 
     while True:
@@ -43,20 +44,22 @@ def get_filters():
             break
         else:
             print(df.iloc[0+step:5+step])
-            step += 5
-            show_Y_N = input('Would you like to see another 5 rows of raw data? Enter yes or no to continue?\n')
+            #step += 5
+            step += 10
+            show_Y_N = input('Would you like to see another 10 rows of raw data? Enter Yes or No to continue?\n')
 
 
     # get user input for month (all, january, february, ... , june)
     months = ['all', 'january', 'february','march','april','may','june']
     temp = 1
-    Select_phrase = 'Select a month January, February,...June or All\n'
+    Select_phrase = 'Select a month January, February, March, April, May, June or All\n'
+
     while temp == 1:
         month = input(Select_phrase).lower()
         for item in range(len(months)):
             if month == months[item]:
                 temp = 0
-        Select_phrase = 'Incorrect choice, select a month January, February,...June or All\n'
+        Select_phrase = 'Incorrect choice, select a month January, February, March, April, May, June or All\n'
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
     days = ['all', 'monday', 'tuesday','wednesday','thursday','friday','saturday','sunday']
